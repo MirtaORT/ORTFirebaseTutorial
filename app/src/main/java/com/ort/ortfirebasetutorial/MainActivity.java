@@ -1,10 +1,15 @@
 package com.ort.ortfirebasetutorial;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +27,7 @@ private static final String TAG = "MainActivity";
 private FirebaseDatabase mDatabase;
 private DatabaseReference mDbRef;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +38,21 @@ private DatabaseReference mDbRef;
         save_button = findViewById(R.id.save_button);
         list_textView = findViewById(R.id.list_textView);
 
+        findViewById(R.id.constraintLayout).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                return true;
+            }
+        });
+
         save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registrarNotas();
             }
         });
-
     }
 
     public void registrarNotas(){
