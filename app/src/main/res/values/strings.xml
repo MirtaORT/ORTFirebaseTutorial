@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ORTFirebaseTutorial</string>
+    <string name="notas_de_alumnos">Notas de Alumnos</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="hint_asignatura">Asignatura</string>
+    <string name="hint_nota">Nota</string>
+    <string name="guardar">Guardar</string>
+    <string name="nombre">Nombre</string>
+    <string name="asignatura">Asignatura</string>
+    <string name="nota">Nota</string>
+</resources>
