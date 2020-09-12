@@ -1,11 +1,8 @@
 package com.ort.ortfirebasetutorial;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.text.Layout;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,8 +11,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.ort.ortfirebasetutorial.Entities.Notas;
 
 public class MainActivity extends AppCompatActivity {
 TextView name_editText;
@@ -26,7 +25,8 @@ Button save_button;
 private static final String TAG = "MainActivity";
 private FirebaseDatabase mDatabase;
 private DatabaseReference mDbRef;
-
+public static final String GOOGLE_ACCOUNT = "google_account";
+private GoogleSignInClient googleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

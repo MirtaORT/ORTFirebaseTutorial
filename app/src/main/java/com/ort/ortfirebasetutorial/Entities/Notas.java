@@ -1,4 +1,4 @@
-package com.ort.ortfirebasetutorial;
+package com.ort.ortfirebasetutorial.Entities;
 
 public class Notas {
     String name, subject, mark;
