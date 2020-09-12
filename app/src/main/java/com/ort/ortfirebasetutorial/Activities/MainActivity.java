@@ -1,4 +1,4 @@
-package com.ort.ortfirebasetutorial;
+package com.ort.ortfirebasetutorial.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.ort.ortfirebasetutorial.Entities.Notas;
+import com.ort.ortfirebasetutorial.R;
 
 public class MainActivity extends AppCompatActivity {
 TextView name_editText;

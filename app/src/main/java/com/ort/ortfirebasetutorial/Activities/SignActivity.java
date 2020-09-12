@@ -1,4 +1,4 @@
-package com.ort.ortfirebasetutorial;
+package com.ort.ortfirebasetutorial.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.ort.ortfirebasetutorial.R;
 
 public class SignActivity extends AppCompatActivity {
     private static final String TAG = "AndroidClarified";

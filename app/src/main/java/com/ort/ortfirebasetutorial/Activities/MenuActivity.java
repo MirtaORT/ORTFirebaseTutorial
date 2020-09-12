@@ -1,4 +1,4 @@
-package com.ort.ortfirebasetutorial;
+package com.ort.ortfirebasetutorial.Activities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.ort.ortfirebasetutorial.R;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;

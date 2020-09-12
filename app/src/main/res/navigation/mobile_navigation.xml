@@ -22,4 +22,10 @@
         android:name="com.ort.ortfirebasetutorial.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_exitApp"
+        android:name="com.ort.ortfirebasetutorial.ui.exitApp.ExitAppFragment"
+        android:label="@string/menu_exitApp"
+        tools:layout="@layout/fragment_exitapp" />
 </navigation>
