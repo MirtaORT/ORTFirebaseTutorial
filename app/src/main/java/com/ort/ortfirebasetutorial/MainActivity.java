@@ -25,8 +25,6 @@ Button save_button;
 private static final String TAG = "MainActivity";
 private FirebaseDatabase mDatabase;
 private DatabaseReference mDbRef;
-public static final String GOOGLE_ACCOUNT = "google_account";
-private GoogleSignInClient googleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

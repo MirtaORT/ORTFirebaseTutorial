@@ -63,8 +63,8 @@ public class SignActivity extends AppCompatActivity {
             }
     }
     private void onLoggedIn(GoogleSignInAccount googleSignInAccount) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(MainActivity.GOOGLE_ACCOUNT, googleSignInAccount);
+        Intent intent = new Intent(this, MenuActivity.class);
+        intent.putExtra(MenuActivity.GOOGLE_ACCOUNT, googleSignInAccount);
         startActivity(intent);
         finish();
     }
