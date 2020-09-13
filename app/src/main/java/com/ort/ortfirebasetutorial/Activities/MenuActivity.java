@@ -1,5 +1,6 @@
 package com.ort.ortfirebasetutorial.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -38,9 +39,21 @@ public class MenuActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL  , "cosme.fulanito@fox.com");
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "DUFF");
+                emailIntent.putExtra(Intent.EXTRA_TEXT   , "Mi Vieja Mula ya no es lo que era...");
+                emailIntent.setType("plain/text");
+
+                try{ //que pasa si no hay ninguna app de correo????
+                    startActivity(Intent.createChooser(emailIntent, "Choose an Email client :"));
+
+                }catch (Exception e){ //ActivityNOtFoudExc....
+
+//Toast...
+                }
+
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
