@@ -22,9 +22,9 @@
     <string name="menu_exitApp">Exit App</string>
     <string name="btnSignOut">Salir</string>
     <!-- para no publicar la api en git,
-+    la puedo exportar en variables de entorno
-+    o en un archivo fuera del source tree
-+    o bien con git.ignore-->
+   la puedo exportar en variables de entorno
+   o en un archivo fuera del source tree
+   o bien con git.ignore-->
     <!--<string name="google_maps_key">aca va el apiKey</string> -->
 
 </resources>
