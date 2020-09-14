@@ -21,7 +21,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_exitApp">Exit App</string>
     <string name="btnSignOut">Salir</string>
-    <!-- par ano publicar la api en git,
+    <!-- para no publicar la api en git,
     la puedo exportar en variables de entorno
     o en un archivo fuera del source tree
     o bien con git.ignore-->
