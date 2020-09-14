@@ -89,8 +89,8 @@ public class SignActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI();
+            FirebaseUser currentUser = mAuth.getCurrentUser();
+            updateUI();
     }
 
     private void updateUI() {

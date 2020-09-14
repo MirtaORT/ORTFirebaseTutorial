@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,10 +27,13 @@ import com.ort.ortfirebasetutorial.R;
 
 import org.json.JSONObject;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback {
+public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButtonClickListener,
+        GoogleMap.OnMyLocationClickListener,
+        OnMapReadyCallback {
 
     private MapViewModel mapViewModel;
     private GoogleMap mMap;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -84,28 +88,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         }
 
         mMap.setMyLocationEnabled(true);
-        mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-            @Override
-            public void onMyLocationChange(Location location) {
-                if(actualPosition){
-                    latitudOrigen = location.getLatitude();
-                    longitudOrigen = location.getLongitude();
-                  //  actualPosition=false;
-                    LatLng miPosicion = new LatLng(latitudOrigen,longitudOrigen);
-                    mMap.addMarker(new MarkerOptions().position(miPosicion).title("Estas Aqui!!")); //agregamos el marcador
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(miPosicion)); //ajustamos la camara
-                    float zoomlevel = 16; //nivel de zoom
-                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(miPosicion, zoomlevel)); //ajustamos el zoom y el marcador
-                }
-            }
-        });
+        mMap.setOnMyLocationButtonClickListener(this);
+        mMap.setOnMyLocationClickListener(this);
         //lo pueden cambiar por el que mas les guste
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         //son las opciones de navegacion
         UiSettings uiSettings = mMap.getUiSettings();
-        uiSettings.setZoomControlsEnabled(true);
+        uiSettings.setZoomControlsEnabled(false); // controles de zoom
+        uiSettings.setMyLocationButtonEnabled(true); //boton de mi ubicacion
     }
+
+
 
 
     @Override
@@ -136,6 +130,19 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
+    @Override
+    public boolean onMyLocationButtonClick() {
+        Toast.makeText(getContext(), "MyLocation button clicked", Toast.LENGTH_SHORT).show();
+        // Return false so that we don't consume the event and the default behavior still occurs
+        // (the camera animates to the user's current position).
+        return false;
     }
+
+    @Override
+    public void onMyLocationClick(@NonNull Location location) {
+        Toast.makeText(getContext(), "Current location:\n" + location, Toast.LENGTH_LONG).show();
+
+    }
+}
 
 
