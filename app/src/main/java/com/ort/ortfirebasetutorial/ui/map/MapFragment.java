@@ -22,6 +22,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.ort.ortfirebasetutorial.R;
 
@@ -33,6 +34,15 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
 
     private MapViewModel mapViewModel;
     private GoogleMap mMap;
+    private static final LatLng EL_CLUB_DE_LA_BIRRA = new LatLng(-34.6253417,-58.427949);
+    private static final LatLng ORT_YATAY = new LatLng(-34.6099906,-58.431331);
+    private static final LatLng ORT_BELGRANO = new LatLng(-34.5497116,-58.4563225);
+    private static final LatLng DISCO_J_M_MOREO = new LatLng(-34.5497116,-58.4563225);
+
+    private Marker mBirra;
+    private Marker mOrtYatay;
+    private Marker mOrtBelgrano;
+    private Marker mDiscoJMM;
 
 
 
@@ -97,6 +107,30 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         UiSettings uiSettings = mMap.getUiSettings();
         uiSettings.setZoomControlsEnabled(false); // controles de zoom
         uiSettings.setMyLocationButtonEnabled(true); //boton de mi ubicacion
+
+        //agrego marcadores
+        // Add some markers to the map, and add a data object to each marker.
+        mBirra = mMap.addMarker(new MarkerOptions()
+                .position(EL_CLUB_DE_LA_BIRRA)
+                .title("El Club de La Birra"));
+        mBirra.setTag(0);
+
+        mOrtYatay = mMap.addMarker(new MarkerOptions()
+                .position(ORT_YATAY)
+                .title("ORT Almagro"));
+        mOrtYatay.setTag(0);
+
+        mOrtBelgrano = mMap.addMarker(new MarkerOptions()
+                .position(ORT_BELGRANO)
+                .title("ORT Belgrano"));
+        mOrtBelgrano.setTag(0);
+
+        mDiscoJMM = mMap.addMarker(new MarkerOptions()
+                .position(DISCO_J_M_MOREO)
+                .title("Disco J M Moreno"));
+        mOrtBelgrano.setTag(0);
+
+
     }
 
 
