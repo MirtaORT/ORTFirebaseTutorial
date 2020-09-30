@@ -128,7 +128,7 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
         mDiscoJMM = mMap.addMarker(new MarkerOptions()
                 .position(DISCO_J_M_MOREO)
                 .title("Disco J M Moreno"));
-        mOrtBelgrano.setTag(0);
+        mDiscoJMM.setTag(0);
 
 
     }
