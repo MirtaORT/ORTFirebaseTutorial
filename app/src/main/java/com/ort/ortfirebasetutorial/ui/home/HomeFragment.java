@@ -52,6 +52,7 @@ public class HomeFragment extends Fragment {
                 registrarNotas();
             }
         });
+
         root.findViewById(R.id.constraintFragmentLayout).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
