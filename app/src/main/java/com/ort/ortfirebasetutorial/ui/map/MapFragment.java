@@ -2,6 +2,7 @@ package com.ort.ortfirebasetutorial.ui.map;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -43,6 +46,7 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
     private Marker mOrtYatay;
     private Marker mOrtBelgrano;
     private Marker mDiscoJMM;
+
 
 
 
@@ -130,8 +134,29 @@ public class MapFragment extends Fragment implements GoogleMap.OnMyLocationButto
                 .title("Disco J M Moreno"));
         mDiscoJMM.setTag(0);
 
+        //para simular el click del set location y mover la camara a donde estoy ahora
+        GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
+            @Override
+            public void onMyLocationChange (Location location) {
+                LatLng loc = new LatLng (location.getLatitude(), location.getLongitude());
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+                mMap.addMarker(new MarkerOptions()
+                        .position(loc)
+                        .title("Estas Acà Perdido!!")
+                        .snippet("Este sos vos!!")
+                        .icon(BitmapDescriptorFactory
+                                .defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+
+                );
+
+            }
+        };
+        mMap.setOnMyLocationChangeListener(myLocationChangeListener);
+
 
     }
+
+
 
 
 
